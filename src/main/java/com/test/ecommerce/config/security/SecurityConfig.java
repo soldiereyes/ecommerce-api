@@ -26,11 +26,15 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
+        http
+                .csrf(csrf -> csrf.disable())
+                .cors(cors -> {}) // importante: habilita o CORS do CorsConfig
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(reg -> reg
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/actuator/health").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/products", "/products/**").permitAll() // público
+                        .requestMatchers("/reports/**").hasRole("ADMIN") //só adm
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
