@@ -20,4 +20,4 @@ spring:
 app:
   jwt:
     secret: "127d8aad56e08b6b29ef880194f6055b"
-    expirationMillis: 86400000
+    expirationMillis: 8640000000000
