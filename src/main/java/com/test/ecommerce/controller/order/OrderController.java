@@ -46,7 +46,7 @@ public class OrderController {
     /** Lista os pedidos do usuário autenticado */
     @GetMapping("/my")
     public ResponseEntity<Page<OrderResponse>> my(@AuthenticationPrincipal User user,
-                                                  @PageableDefault(size = 20) Pageable pageable) {
+                                                  @PageableDefault(size = 20) Pageable pageable) { // verificar se há uma opção para quando não há registros suficientes para paginar.
         return ResponseEntity.ok(service.listMy(user, pageable));
     }
 }

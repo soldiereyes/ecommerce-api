@@ -23,7 +23,6 @@ import java.util.*;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final OrderItemRepository orderItemRepository;
     private final ProductRepository productRepository;
 
     /**
@@ -108,6 +107,7 @@ public class OrderService {
     /**
      * Lista os pedidos do usuário autenticado.
      */
+    @Transactional
     public Page<OrderResponse> listMy(User user, Pageable pageable) {
         return orderRepository.findByUserId(user.getId(), pageable)
                 .map(this::toResponse);
