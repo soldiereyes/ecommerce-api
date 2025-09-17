@@ -1,6 +1,8 @@
 package com.test.ecommerce.controller.auth;
 
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -28,6 +30,7 @@ public class AuthControllerIntegrationTest {
     private ObjectMapper objectMapper;
 
     @Test
+    @DisplayName("Faz uma requisição de registro")
     void shouldRegisterUserSuccessfully() throws Exception {
         // Given
         RegisterRequest request = new RegisterRequest(
