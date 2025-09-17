@@ -6,7 +6,6 @@ import com.test.ecommerce.entity.order.OrderItem;
 import com.test.ecommerce.entity.order.OrderStatus;
 import com.test.ecommerce.entity.product.Product;
 import com.test.ecommerce.entity.user.User;
-import com.test.ecommerce.repository.order.OrderItemRepository;
 import com.test.ecommerce.repository.order.OrderRepository;
 import com.test.ecommerce.repository.product.ProductRepository;
 import jakarta.transaction.Transactional;
